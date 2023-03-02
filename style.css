@@ -1,0 +1,25 @@
+body
+{
+    background: gray;
+}
+
+main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-auction
+{
+    background: orange;
+    height: 300px;
+    margin: 10px;
+
+    width: 80vw;
+}
+
+.hot-offer
+{
+    background-color: aqua;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+            <div class="add-car">
+                <input type="text" placeholder="Marka" class="add-car__brand"></input>
+                <input type="text" placeholder="Model" class="add-car__model"></input>
+                <input type="submit" value="Dodaj do komisu" class="add-car__add-confirm"/>
+            </div>
+            <div class="delete-car">
+                <input type="text">
+            </div>
+            <span class="cars-on-yard"></span>
+            <main>
+
+            </main>
+    
+    <script>
+        const MAIN = document.getElementsByTagName("main")[0];
+        const FIRST_AUCTION = document.querySelector(".new-auction");
+
+        let carsForSale = ["dodge", "chevy", "gmc", "pontiac", "acura", "toyota"];
+        let soldCars = [];
+
+        window.onload = function addAuctions()
+        {
+            
+            for (let i=0; i<carsForSale.length ;i++)
+            {
+                let NEW_AUCTION = document.createElement("div");
+                NEW_AUCTION.classList.add("new-auction");
+                NEW_AUCTION.innerHTML = (carsForSale[i])
+                MAIN.appendChild(NEW_AUCTION);
+                console.log("new auction");
+            }
+        }
+
+        const CARS = document.querySelector(".cars-on-yard");
+        CARS.innerHTML = (carsForSale.join(" - "));
+
+        const ADD = document.querySelector(".add-car__add-confirm");
+        ADD.addEventListener("click", function() 
+        {
+            {
+                let brand = document.querySelector(".add-car__brand").value;
+                let model = document.querySelector(".add-car__model").value;
+                let car = brand + " " + model;
+                carsForSale.splice(carsForSale.length, 0, car);
+                CARS.innerHTML = (carsForSale.join(" - "));
+                let NEW_AUCTION = document.createElement("div");
+                NEW_AUCTION.classList.add("new-auction");
+                NEW_AUCTION.classList.add("hot-offer");
+                NEW_AUCTION.innerHTML = (car);
+                MAIN.insertBefore(NEW_AUCTION, MAIN.firstChild);
+                return carsForSale;
+            }
+            
+        });
+
+
+
+
+        console.log(carsForSale);
+        console.log(soldCars);
+    
+       
+    
+    </script>
+</body>
+</html>
